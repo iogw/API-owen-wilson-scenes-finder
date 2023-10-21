@@ -3,11 +3,12 @@ import callToApi from '../services/api';
 
 function App() {
   //States
-  const [scenesList, setSceneList] = useState([]);
+  const [scenesList, setScenesList] = useState([]);
+  const [srchMovieVal, setSrchMovieVal] = useState('');
 
   useEffect(() => {
     callToApi().then((response) => {
-      setSceneList(response);
+      setScenesList(response);
     });
   }, []);
   //handlers
@@ -32,7 +33,22 @@ function App() {
     return scene;
   };
 
-  return <>{renderCardScenes()}</>;
+  return (
+    <>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <label htmlFor="searchMovie">
+          <input
+            type="text"
+            name="searchMovie"
+            id="searchMovie"
+            value={srchMovieVal}
+            onChange={(e) => setSrchMovieVal(e.currentTarget.value)}
+          />
+        </label>
+      </form>
+      {renderCardScenes()}
+    </>
+  );
 }
 
 export default App;
