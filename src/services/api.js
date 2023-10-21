@@ -1,16 +1,16 @@
-const callToApi = (searchName) => {
-  return fetch(`https://api.tvmaze.com/search/shows?q=${searchName}`)
+const callToApi = () => {
+  return fetch(`https://owen-wilson-wow-api.onrender.com/wows/random?results=5`)
     .then((response) => response.json())
-    .then((data) => {
-      return data;
-      //SI HAY QUE LIMPIAR LOS DATOS
-      // const result = data.map((serie) => {
-      // return {
-      // id: serie.show.id,
-      // name: serie.show.name,
-      // };
-      // });
-      // return result;
+    .then((apiData) => {
+      const cleanData = apiData.map((eachData) => {
+      return {
+      img: eachData.poster,
+      movieTitle: eachData.movie,
+      phrase: eachData.full_line,
+      year: eachData.year,
+      };
+      });
+      return cleanData;
     });
 };
 
