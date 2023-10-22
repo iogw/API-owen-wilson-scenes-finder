@@ -6,7 +6,7 @@ const MovieSceneList = ({ filteredScenesList }) => {
     const scene = filteredScenesList.map((scene) => {
       return (
         <article key={scene.id}>
-          <Link to={`/card/${scene.id}`}>
+          <Link to={`/scene/${scene.id}`}>
             <img
               width="100px"
               src={scene.img}

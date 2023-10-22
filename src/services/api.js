@@ -6,10 +6,14 @@ const callToApi = () => {
       return {
       img: eachData.poster,
       movieTitle: eachData.movie,
-      phrase: eachData.full_line,
       year: eachData.year,
+      phrase: eachData.full_line,
+      director: eachData.director,
+      audio: eachData.audio,
+      video:eachData.video["480p"],
       };
       });
+      console.log(cleanData);
       return cleanData;
     });
 };

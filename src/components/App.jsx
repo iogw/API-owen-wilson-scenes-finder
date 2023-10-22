@@ -7,7 +7,7 @@ import callToApi from '../services/api';
 import Header from './Header/Header';
 import Filters from './Main/Filters/Filters';
 import MovieSceneList from './Main/Results/MovieSceneList';
-import MovieSceneListItem from './Main/Results/MovieSceneListItem';
+import MovieSceneDetail from './Main/Results/MovieSceneDetail';
 
 function App() {
   //States
@@ -49,9 +49,9 @@ function App() {
   };
   const { pathname } = useLocation();
   const getSceneData = () => {
-    const routeData = matchPath('/card/:id', pathname);
-    const cardId = routeData ? routeData.params.id : '';
-    return scenesList.find((scene) => scene.id === cardId);
+    const routeData = matchPath('/scene/:id', pathname);
+    const sceneId = routeData ? routeData.params.id : '';
+    return scenesList.find((scene) => scene.id === sceneId);
   };
 
   return (
@@ -75,11 +75,11 @@ function App() {
             }
           />
           <Route
-            path="/card/:id"
+            path="/scene/:id"
             element={
               <>
                 <h2>soy una tarjeta</h2>
-                <MovieSceneListItem sceneData={getSceneData()} />
+                <MovieSceneDetail sceneData={getSceneData()} />
               </>
             }
           />
