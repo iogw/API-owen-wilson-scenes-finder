@@ -25,11 +25,11 @@ function App() {
     });
   }, []);
 
-  //events
+  //lifting events
   const handleSrchMovieInput = (value) => setSrchMovieVal(value);
   const handleSrchYearSelect = (value) => setSrchYearVal(value);
 
-  //renders
+  //get data to props
   const getFilteredScenesList = () => {
     const filteredScenes = scenesList
       .filter((scene) =>
@@ -40,8 +40,6 @@ function App() {
       );
     return filteredScenes;
   };
-
-  //data
   const getUniqueYearsList = () => {
     const yearsOfList = scenesList.map((scene) => scene.year);
     const uniqueSortedYears = [...new Set(yearsOfList)].sort();
@@ -70,7 +68,11 @@ function App() {
                   srchYearVal={srchYearVal}
                   handleSrchYearSelect={handleSrchYearSelect}
                 />
-                <MovieSceneList filteredScenesList={getFilteredScenesList()} />
+                <MovieSceneList
+                  filteredScenesList={getFilteredScenesList()}
+                  srchMovieVal={srchMovieVal}
+                  srchYearVal={srchYearVal}
+                />
               </>
             }
           />

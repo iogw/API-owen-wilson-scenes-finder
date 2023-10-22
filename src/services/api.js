@@ -1,7 +1,8 @@
 const callToApi = () => {
-  return fetch(`https://owen-wilson-wow-api.onrender.com/wows/random?results=5`)
+  return fetch(`https://owen-wilson-wow-api.onrender.com/wows/random?results=92`)
     .then((response) => response.json())
     .then((apiData) => {
+      console.log(apiData);
       const cleanData = apiData.map((eachData) => {
       return {
       img: eachData.poster,
@@ -13,7 +14,6 @@ const callToApi = () => {
       video:eachData.video["480p"],
       };
       });
-      console.log(cleanData);
       return cleanData;
     });
 };
