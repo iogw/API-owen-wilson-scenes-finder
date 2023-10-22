@@ -8,6 +8,7 @@ const Filters = ({
   yearsList,
   srchYearVal,
   handleSrchYearSelect,
+  handleRstBtn,
 }) => {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
@@ -20,6 +21,7 @@ const Filters = ({
         srchYearVal={srchYearVal}
         handleSrchYearSelect={handleSrchYearSelect}
       />
+      <button onClick={handleRstBtn}>Reset</button>
     </form>
   );
 };
@@ -30,6 +32,7 @@ Filters.propTypes = {
   yearsList: PropTypes.array,
   srchYearVal: PropTypes.string,
   handleSrchYearSelect: PropTypes.func,
+  handleRstBtn: PropTypes.func
 };
 
 export default Filters;

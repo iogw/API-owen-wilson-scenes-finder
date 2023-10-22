@@ -8,26 +8,34 @@ import Header from './Header/Header';
 import Filters from './Main/Filters/Filters';
 import MovieSceneList from './Main/Results/MovieSceneList';
 import MovieSceneDetail from './Main/Results/MovieSceneDetail';
+import Loading from './Main/Results/Loading';
 
 function App() {
   //States
   const [srchMovieVal, setSrchMovieVal] = useState('');
   const [srchYearVal, setSrchYearVal] = useState('all');
   const [scenesList, setScenesList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   //effects
   useEffect(() => {
+    setIsLoading(true);
     callToApi().then((apiData) => {
       const apiDataWithId = apiData.map((el) => {
         return { ...el, id: uuid() };
       });
       setScenesList(apiDataWithId);
+      setIsLoading(false);
     });
   }, []);
 
-  //lifting events
-  const handleSrchMovieInput = (value) => setSrchMovieVal(value);
+  // events
   const handleSrchYearSelect = (value) => setSrchYearVal(value);
+  const handleSrchMovieInput = (value) => setSrchMovieVal(value);
+  const handleRstBtn = () => {
+    setSrchMovieVal('');
+    setSrchYearVal('all');
+  };
 
   //get data to props
   const getFilteredScenesList = () => {
@@ -67,9 +75,12 @@ function App() {
                   yearsList={getUniqueYearsList()}
                   srchYearVal={srchYearVal}
                   handleSrchYearSelect={handleSrchYearSelect}
+                  handleRstBtn={handleRstBtn}
                 />
+                <Loading loading={isLoading} />
                 <MovieSceneList
                   filteredScenesList={getFilteredScenesList()}
+                  isLoading={isLoading}
                   srchMovieVal={srchMovieVal}
                   srchYearVal={srchYearVal}
                 />
