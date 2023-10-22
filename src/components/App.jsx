@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, matchPath } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 //services
 import callToApi from '../services/api';
@@ -7,6 +7,7 @@ import callToApi from '../services/api';
 import Header from './Header/Header';
 import Filters from './Main/Filters/Filters';
 import MovieSceneList from './Main/Results/MovieSceneList';
+import MovieSceneListItem from './Main/Results/MovieSceneListItem';
 
 function App() {
   //States
@@ -46,6 +47,12 @@ function App() {
     const uniqueSortedYears = [...new Set(yearsOfList)].sort();
     return uniqueSortedYears;
   };
+  const { pathname } = useLocation();
+  const getSceneData = () => {
+    const routeData = matchPath('/card/:id', pathname);
+    const cardId = routeData ? routeData.params.id : '';
+    return scenesList.find((scene) => scene.id === cardId);
+  };
 
   return (
     <>
@@ -67,7 +74,15 @@ function App() {
               </>
             }
           />
-          <Route path="/card" element={<p>hola</p>} />
+          <Route
+            path="/card/:id"
+            element={
+              <>
+                <h2>soy una tarjeta</h2>
+                <MovieSceneListItem sceneData={getSceneData()} />
+              </>
+            }
+          />
         </Routes>
       </main>
     </>
