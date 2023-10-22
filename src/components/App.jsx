@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import callToApi from '../services/api';
+import Header from './Header/Header';
+import Filters from './Main/Filters/Filters';
+import MovieSceneList from './Main/Results/MovieSceneList';
 
 function App() {
   //States
-  const [scenesList, setScenesList] = useState([]);
   const [srchMovieVal, setSrchMovieVal] = useState('');
   const [srchYearVal, setSrchYearVal] = useState('all');
+  const [scenesList, setScenesList] = useState([]);
 
   //effects
   useEffect(() => {
@@ -13,22 +16,10 @@ function App() {
   }, []);
 
   //events
-  const handleSelect = (e) => setSrchYearVal(e.target.value);
+  const handleSrchMovieInput = (value) => setSrchMovieVal(value);
+  const handleSrchYearSelect = (value) => setSrchYearVal(value);
 
   //renders
-  const renderSrchYearOptions = () => {
-    const yearsOfList = scenesList.map((scene) => scene.year);
-    const uniqueSortYears = [...new Set(yearsOfList)].sort();
-    const option = uniqueSortYears.map((year) => {
-      return (
-        <option key={year} value={year}>
-          {year}
-        </option>
-      );
-    });
-    return option;
-  };
-
   const renderCardScenes = () => {
     const scene = scenesList
       .filter((scene) =>
@@ -56,29 +47,24 @@ function App() {
     return scene;
   };
 
+  //data
+  const getUniqueYearsList = () => {
+    const yearsOfList = scenesList.map((scene) => scene.year);
+    const uniqueSortedYears = [...new Set(yearsOfList)].sort();
+    return uniqueSortedYears;
+  };
+
   return (
     <>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor="searchMovie">Busca por peli: </label>
-        <input
-          type="text"
-          name="searchMovie"
-          id="searchMovie"
-          value={srchMovieVal}
-          onChange={(e) => setSrchMovieVal(e.currentTarget.value)}
-        />
-        <label htmlFor="searchYear">Selecciona un año: </label>
-        <select
-          name="searchYear"
-          id="searchYear"
-          value={srchYearVal}
-          onChange={handleSelect}
-        >
-          <option value='all'>Todos</option>
-          {renderSrchYearOptions()}
-        </select>
-      </form>
-      {renderCardScenes()}
+      <Header />
+      <Filters
+        srchMovieVal={srchMovieVal}
+        handleSrchMovieInput={handleSrchMovieInput}
+        yearsList={getUniqueYearsList()}
+        srchYearVal={srchYearVal}
+        handleSrchYearSelect={handleSrchYearSelect}
+      />
+      {/* <MovieSceneList /> */}
     </>
   );
 }
