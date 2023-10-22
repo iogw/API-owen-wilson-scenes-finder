@@ -13,7 +13,7 @@ const FilterByYear = ({ yearsList, srchYearVal, handleSrchYearSelect }) => {
   const onChangeYearSelect = (e) => handleSrchYearSelect(e.target.value);
   return (
     <>
-      <label htmlFor="searchYear">Selecciona un año: </label>
+      <label htmlFor="searchYear">¿De qué año? </label>
       <select
         name="searchYear"
         id="searchYear"

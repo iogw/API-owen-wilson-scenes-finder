@@ -4,6 +4,7 @@ const MovieSceneDetail = ({ sceneData }) => {
   const renderScene = () => {
     return (
       <article>
+        <button onClick={() => window.history.back()}>Volver Atrás</button>
         <img
           width="300px"
           src={sceneData.img}

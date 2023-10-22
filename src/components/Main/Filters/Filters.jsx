@@ -21,7 +21,7 @@ const Filters = ({
         srchYearVal={srchYearVal}
         handleSrchYearSelect={handleSrchYearSelect}
       />
-      <button onClick={handleRstBtn}>Reset</button>
+      <button onClick={handleRstBtn}>Limpiar búsqueda</button>
     </form>
   );
 };

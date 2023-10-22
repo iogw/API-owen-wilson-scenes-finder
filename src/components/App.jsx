@@ -91,7 +91,6 @@ function App() {
             path="/scene/:id"
             element={
               <>
-                <h2>soy una tarjeta</h2>
                 <MovieSceneDetail sceneData={getSceneData()} />
               </>
             }
