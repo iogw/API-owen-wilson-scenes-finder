@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 const MovieSceneDetail = ({ sceneData }) => {
   const renderScene = () => {
@@ -13,9 +12,9 @@ const MovieSceneDetail = ({ sceneData }) => {
         <h2>{sceneData.movieTitle}</h2>
         <p>Frase: {sceneData.phrase}</p>
         <p>Director: {sceneData.director}</p>
-        <Link target="_blank" to={sceneData.video}>
+        <a target="_blank" href={sceneData.video} rel="noreferrer">
           Ver escena
-        </Link>
+        </a>
         <p>Escucha el wow: </p>
         <audio controls>
           <source src={sceneData.audio} type="audio/mp3" />

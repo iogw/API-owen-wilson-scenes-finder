@@ -1,28 +1,14 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import MovieSceneListItem from './MovieSceneListItem';
 
 const MovieSceneList = ({ filteredScenesList }) => {
   const renderScenesList = () => {
     const scene = filteredScenesList.map((scene) => {
-      return (
-        <article key={scene.id}>
-          <Link to={`/scene/${scene.id}`}>
-            <img
-              width="100px"
-              src={scene.img}
-              alt={`Póster de la película ${scene.movieTitle}`}
-            />
-            <h2>
-              {scene.movieTitle} - {scene.year}
-            </h2>
-            <p>{scene.phrase}</p>
-          </Link>
-        </article>
-      );
+      return <MovieSceneListItem key={scene.id} scene={scene} />;
     });
     return scene;
   };
-  return <>{renderScenesList()}</>;
+  return <section>{renderScenesList()}</section>;
 };
 
 MovieSceneList.propTypes = {
