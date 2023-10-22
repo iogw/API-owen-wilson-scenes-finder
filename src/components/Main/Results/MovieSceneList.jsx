@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const MovieSceneList = ({ filteredScenesList }) => {
   const renderScenesList = () => {
-    const scene = filteredScenesList.map((scene, i) => {
+    const scene = filteredScenesList.map((scene) => {
       return (
-        <article key={i}>
+        <article key={scene.id}>
           <Link to="/card">
             <img
               width="100px"

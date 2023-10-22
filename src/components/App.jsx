@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
+//services
 import callToApi from '../services/api';
+//components
 import Header from './Header/Header';
 import Filters from './Main/Filters/Filters';
 import MovieSceneList from './Main/Results/MovieSceneList';
-import { Route, Routes } from 'react-router-dom';
 
 function App() {
   //States
@@ -13,7 +16,12 @@ function App() {
 
   //effects
   useEffect(() => {
-    callToApi().then((response) => setScenesList(response));
+    callToApi().then((apiData) => {
+      const apiDataWithId = apiData.map((el) => {
+        return { ...el, id: uuid() };
+      });
+      setScenesList(apiDataWithId);
+    });
   }, []);
 
   //events
@@ -59,7 +67,7 @@ function App() {
               </>
             }
           />
-          <Route path='/card' element={<p>hola</p>} />
+          <Route path="/card" element={<p>hola</p>} />
         </Routes>
       </main>
     </>
