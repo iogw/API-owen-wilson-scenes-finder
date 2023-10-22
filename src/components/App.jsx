@@ -11,11 +11,10 @@ function App() {
   useEffect(() => {
     callToApi().then((response) => setScenesList(response));
   }, []);
-  
+
   //events
-  const handleSelect = (e) => {
-    setSrchYearVal(e.target.value);
-  };
+  const handleSelect = (e) => setSrchYearVal(e.target.value);
+
   //renders
   const renderSrchYearOptions = () => {
     const yearsOfList = scenesList.map((scene) => scene.year);
@@ -35,6 +34,9 @@ function App() {
       .filter((scene) =>
         scene.movieTitle.toLowerCase().includes(srchMovieVal.toLowerCase())
       )
+      .filter((scene) =>
+        srchYearVal === 'all' ? true : scene.year.toString() === srchYearVal
+      )
       .map((scene, i) => {
         return (
           <article key={i}>
@@ -50,6 +52,7 @@ function App() {
           </article>
         );
       });
+
     return scene;
   };
 
@@ -71,7 +74,7 @@ function App() {
           value={srchYearVal}
           onChange={handleSelect}
         >
-          <option value="all">Todos</option>
+          <option value='all'>Todos</option>
           {renderSrchYearOptions()}
         </select>
       </form>
