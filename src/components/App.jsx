@@ -3,6 +3,7 @@ import callToApi from '../services/api';
 import Header from './Header/Header';
 import Filters from './Main/Filters/Filters';
 import MovieSceneList from './Main/Results/MovieSceneList';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   //States
@@ -41,14 +42,26 @@ function App() {
   return (
     <>
       <Header />
-      <Filters
-        srchMovieVal={srchMovieVal}
-        handleSrchMovieInput={handleSrchMovieInput}
-        yearsList={getUniqueYearsList()}
-        srchYearVal={srchYearVal}
-        handleSrchYearSelect={handleSrchYearSelect}
-      />
-      <MovieSceneList filteredScenesList={getFilteredScenesList()} />
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Filters
+                  srchMovieVal={srchMovieVal}
+                  handleSrchMovieInput={handleSrchMovieInput}
+                  yearsList={getUniqueYearsList()}
+                  srchYearVal={srchYearVal}
+                  handleSrchYearSelect={handleSrchYearSelect}
+                />
+                <MovieSceneList filteredScenesList={getFilteredScenesList()} />
+              </>
+            }
+          />
+          <Route path='/card' element={<p>hola</p>} />
+        </Routes>
+      </main>
     </>
   );
 }
