@@ -1,0 +1,26 @@
+@import '../core/variables';
+
+.footer {
+  position: sticky;
+  padding: 2rem;
+  margin-top: 5rem;
+  bottom: 0;
+  background-color: $orange;
+  text-align: center;
+
+  &__spoiler {
+    padding: 1rem;
+    font-size: 1rem;
+    &--span {
+      padding: 0.5rem;
+      border: 0.1rem solid $orangeDark;
+      color: $orange;
+      &:hover {
+        color: $black;
+      }
+    }
+    @media (min-width: 768px) {
+      font-size: 1.3rem;
+    }
+  }
+}
