@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import MovieSceneListItem from './MovieSceneListItem';
-import '../../../styles/components/MovieSceneList.scss';
+import '../../styles/components/results/MovieSceneList.scss';
 
 const MovieSceneList = ({
   filteredScenesList,

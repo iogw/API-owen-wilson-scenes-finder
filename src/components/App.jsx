@@ -5,10 +5,10 @@ import { v4 as uuid } from 'uuid';
 import callToApi from '../services/api';
 //components
 import Header from './Header/Header';
-import Loading from './Main/Results/Loading';
-import Filters from './Main/Filters/Filters';
-import MovieSceneList from './Main/Results/MovieSceneList';
-import MovieSceneDetail from './Main/Results/MovieSceneDetail';
+import Filters from './Filters/Filters';
+import Loading from './Results/Loading';
+import MovieSceneList from './Results/MovieSceneList';
+import MovieSceneDetail from './Results/MovieSceneDetail';
 import Footer from './Footer/Footer';
 //Styles
 import '../styles/layout/App.scss';

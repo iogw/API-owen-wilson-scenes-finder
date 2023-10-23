@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import '../../../styles/components/MovieSceneListItem.scss';
+import '../../styles/components/results/MovieSceneListItem.scss';
 
 const MovieSceneListItem = ({ scene }) => {
   return (

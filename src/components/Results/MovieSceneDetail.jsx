@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../../styles/components/MovieSceneDetail.scss';
+import '../../styles/components/results/MovieSceneDetail.scss';
 
 const MovieSceneDetail = ({ sceneData }) => {
   const renderScene = () => {

@@ -1,14 +1,12 @@
-import '../../styles/components/Footer.scss';
+import '../../styles/components/footer/Footer.scss';
+import Tooltip from './Tooltip';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <small className="footer__spoiler">
-        Spoiler:{' '}
-        <span className="footer__spoiler--span">
-          lo dice en todas sus pelis
-        </span>
-      </small>
+      <Tooltip>
+        <p>Lo dice en todas sus pelis</p>
+      </Tooltip>
     </footer>
   );
 };

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import FilterByMovie from './FilterByMovie';
 import FilterByYear from './FilterByYear';
 
-import '../../../styles/components/Filters.scss';
+import '../../styles/components/filters/Filters.scss';
 
 const Filters = ({
   srchMovieVal,

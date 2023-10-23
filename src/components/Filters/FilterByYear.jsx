@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../../styles/components/Filter.scss';
+import '../../styles/components/filters/Filter.scss';
 
 const FilterByYear = ({ yearsList, srchYearVal, handleSrchYearSelect }) => {
   const renderSrchYearOptions = () => {

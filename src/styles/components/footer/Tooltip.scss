@@ -1,0 +1,19 @@
+@import '../../core/variables';
+
+.spoiler-title {
+  display: inline;
+  padding: 2rem 5rem;
+}
+.spoiler-text {
+  position: absolute;
+  bottom: 50%;
+  left: 55%;
+  padding: 1rem;
+  background-color: $orange;
+  border: 1px solid $orangeDark;
+  box-shadow: 10px 10px 10px $orangeDark;
+  display: none;
+}
+.spoiler-title:hover ~ .spoiler-text {
+  display: inline-block;
+}

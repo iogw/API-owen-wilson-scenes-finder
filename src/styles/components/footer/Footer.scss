@@ -1,0 +1,11 @@
+@import '../../core/variables';
+
+.footer {
+  position: sticky;
+  padding: 2rem;
+  margin-top: 5rem;
+  bottom: 0;
+  background-color: $orange;
+  text-align: center;
+  font-size: 1.5rem;
+}

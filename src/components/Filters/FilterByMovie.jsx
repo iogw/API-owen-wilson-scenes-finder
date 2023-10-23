@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../../styles/components/Filter.scss';
+import '../../styles/components/filters/Filter.scss';
 
 const FilterByMovie = ({ srchMovieVal, handleSrchMovieInput }) => {
   const onChangeMovieInput = (e) => handleSrchMovieInput(e.currentTarget.value);
