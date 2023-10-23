@@ -15,10 +15,11 @@ const MovieSceneList = ({
     return scene;
   };
   return (
-    <section className='search-results'>
+    <section className="search-results">
       {filteredScenesList.length === 0 && !isLoading ? (
         <p className="search-results__message">
-          Nada por aquí con título &quot;{srchMovieVal} &quot; y año &quot;{srchYearVal==="all"? "todos": srchYearVal}&quot; &#128528;
+          Nada por aquí con título &quot;{srchMovieVal} &quot; y año &quot;
+          {srchYearVal === 'all' ? 'todos' : srchYearVal}&quot; &#128528;
         </p>
       ) : (
         renderScenesList()

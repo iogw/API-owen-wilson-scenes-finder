@@ -1,7 +1,12 @@
 @import '../core/variables';
 
+svg,
+.detail {
+  color: $orangeDark;
+}
 .scene-details {
-  padding: 1rem;
+  position: relative;
+  padding: 5rem 1rem;
   text-align: center;
 
   display: flex;
@@ -11,8 +16,9 @@
   gap: 5rem;
 
   &__back-btn {
-    align-self: flex-start;
-    width: fit-content;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
     padding: 0.8rem 1.6rem;
     background-color: $orange;
     color: $black;
@@ -20,6 +26,12 @@
     cursor: pointer;
     &:hover {
       background-color: $orangeDark;
+    }
+    @media all and (min-width: 1280px) {
+      top: 2rem;
+      left: auto;
+      right: 20%;
+      padding: 1rem 10rem;
     }
   }
   &-main-info {

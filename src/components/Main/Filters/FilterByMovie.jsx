@@ -4,10 +4,12 @@ import '../../../styles/components/Filter.scss';
 const FilterByMovie = ({ srchMovieVal, handleSrchMovieInput }) => {
   const onChangeMovieInput = (e) => handleSrchMovieInput(e.currentTarget.value);
   return (
-    <div className='filter-movie'>
-      <label className="filter-movie__label" htmlFor="searchMovie">Busca por peli: </label>
+    <div className="filter-movie">
+      <label className="filter-movie__label" htmlFor="searchMovie">
+        Busca por peli:{' '}
+      </label>
       <input
-      className='filter-movie__input'
+        className="filter-movie__input"
         type="text"
         name="searchMovie"
         id="searchMovie"

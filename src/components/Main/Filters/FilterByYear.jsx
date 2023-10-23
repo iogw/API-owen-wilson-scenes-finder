@@ -13,10 +13,12 @@ const FilterByYear = ({ yearsList, srchYearVal, handleSrchYearSelect }) => {
   };
   const onChangeYearSelect = (e) => handleSrchYearSelect(e.target.value);
   return (
-    <div className='filter-year'>
-      <label className='filter-year__label' htmlFor="searchYear">¿De qué año? </label>
+    <div className="filter-year">
+      <label className="filter-year__label" htmlFor="searchYear">
+        ¿De qué año?{' '}
+      </label>
       <select
-      className='filter-year__select'
+        className="filter-year__select"
         name="searchYear"
         id="searchYear"
         value={srchYearVal}

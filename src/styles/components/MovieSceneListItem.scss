@@ -8,14 +8,22 @@
   text-align: center;
   color: $black;
   height: 100%;
+  .detail {
+    color: $orangeDark;
+  }
   &:hover {
     background-color: $orangeDark;
     color: $white;
+    .detail {
+      color: $orange;
+    }
   }
   &__img {
     display: block;
     margin: 0 auto;
     border: 1rem solid $orange;
+    border-radius: 5%;
+
     max-width: 15rem;
     @media (min-width: 768px) {
       max-width: 17rem;

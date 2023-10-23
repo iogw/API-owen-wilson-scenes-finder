@@ -23,16 +23,23 @@ const MovieSceneDetail = ({ sceneData }) => {
             </h2>
             <p>{sceneData.year}</p>
             <p className="scene-details-main-info__director">
-            <i className="fa-solid fa-clapperboard"></i> Director: {sceneData.director}
+              <i className="fa-solid fa-clapperboard"></i> Director:{' '}
+              {sceneData.director}
             </p>
-            <p><i className="fa-regular fa-user"></i> Personaje: {sceneData.character}</p>
+            <p>Owen Wilson en el papel de: </p>
+            <p>
+              <i className="fa-regular fa-user"></i> {sceneData.character}{' '}
+              <i className="fa-regular fa-user"></i>
+            </p>
             <p className="scene-details-main-info__phrase">
-              <i className="fa-solid fa-quote-left"></i>
-              {sceneData.phrase}
+              <i className="fa-solid fa-quote-left"></i> {sceneData.phrase}{' '}
               <i className="fa-solid fa-quote-right"></i>
             </p>
             <p>Momento de la película: {sceneData.timeStamp}</p>
-            <p>Wow #{sceneData.currentWow} de un total de {sceneData.totalWows} en esta película.</p>
+            <p>
+              <span className="detail">WOW #{sceneData.currentWow}</span> de un
+              total de {sceneData.totalWows} en esta película.
+            </p>
           </div>
         </div>
         <div className="scene-details-media">

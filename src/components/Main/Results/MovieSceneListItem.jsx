@@ -15,7 +15,9 @@ const MovieSceneListItem = ({ scene }) => {
           {scene.movieTitle} - {scene.year}
         </h2>
         <p className="scene-item__phrase">{scene.phrase}</p>
-        <p>Wow #{scene.currentWow} de {scene.totalWows}</p>
+        <p className="detail">
+          Wow #{scene.currentWow} de {scene.totalWows}
+        </p>
       </article>
     </Link>
   );
