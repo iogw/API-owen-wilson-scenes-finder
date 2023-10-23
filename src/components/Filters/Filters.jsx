@@ -3,6 +3,7 @@ import FilterByMovie from './FilterByMovie';
 import FilterByYear from './FilterByYear';
 
 import '../../styles/components/filters/Filters.scss';
+import Button from '../Button';
 
 const Filters = ({
   srchMovieVal,
@@ -14,7 +15,7 @@ const Filters = ({
   totalFilteredList,
 }) => {
   return (
-    <div className='filters'>
+    <div className="filters">
       <form className="filters__form" onSubmit={(e) => e.preventDefault()}>
         <FilterByMovie
           srchMovieVal={srchMovieVal}
@@ -25,11 +26,15 @@ const Filters = ({
           srchYearVal={srchYearVal}
           handleSrchYearSelect={handleSrchYearSelect}
         />
-        <button className="filters__rst-btn" onClick={handleRstBtn}>
-          Limpiar búsqueda
-        </button>
+        <Button
+          text="Limpiar búsqueda"
+          btnClass="filters__rst-btn"
+          hndlFunc={handleRstBtn}
+        />
       </form>
-      <p className='filters__total'>Número de resultados: {totalFilteredList}</p>
+      <p className="filters__total">
+        Número de resultados: {totalFilteredList}
+      </p>
     </div>
   );
 };

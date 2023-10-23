@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import '../../styles/components/results/MovieSceneDetail.scss';
+import Button from '../Button';
 
 const MovieSceneDetail = ({ sceneData }) => {
   const renderScene = () => {
     return (
       <article className="scene-details">
-        <button
-          className="scene-details__back-btn"
-          onClick={() => window.history.back()}
-        >
-          Volver Atrás
-        </button>
+        <Button
+          text="Volver Atrás"
+          btnClass="scene-details__back-btn"
+          hndlFunc={() => window.history.back()}
+        />
         <div className="scene-details-main-info">
           <img
             className="scene-details-main-info__img"
@@ -43,13 +43,13 @@ const MovieSceneDetail = ({ sceneData }) => {
           </div>
         </div>
         <div className="scene-details-media">
-          <a
-            className="scene-details-media__video-url"
-            target="_blank"
-            href={sceneData.video}
-            rel="noreferrer"
-          >
-            Ver escena <i className="fa-brands fa-youtube"></i>
+          <a target="_blank" href={sceneData.video} rel="noreferrer">
+            <Button
+              text="Ver escenas"
+              btnClass="scene-details-media__video-url"
+            >
+              <i className="fa-brands fa-youtube"></i>
+            </Button>
           </a>
           <p>
             <i className="fa-solid fa-volume-high"></i> Escucha el wow

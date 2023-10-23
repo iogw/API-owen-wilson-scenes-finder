@@ -58,7 +58,6 @@ function App() {
     return filteredScenes;
   };
   const totalFilteredList = getFilteredScenesList().length;
-  console.log(totalFilteredList);
   const getUniqueYearsList = () => {
     const yearsOfList = scenesList.map((scene) => scene.year);
     const uniqueSortedYears = [...new Set(yearsOfList)].sort();

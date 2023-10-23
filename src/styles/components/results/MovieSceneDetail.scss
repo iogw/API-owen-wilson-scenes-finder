@@ -14,19 +14,10 @@ svg,
   justify-content: center;
   align-items: center;
   gap: 5rem;
-
   &__back-btn {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    padding: 0.8rem 1.6rem;
-    background-color: $orange;
-    color: $black;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      background-color: $orangeDark;
-    }
     @media all and (min-width: 1280px) {
       top: 2rem;
       left: auto;
@@ -69,13 +60,12 @@ svg,
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-
     &__video-url {
-      padding: 1rem;
-      width: 15rem;
       border: 0.2rem $orangeDark solid;
+      background-color: $white;
       border-radius: 0.5rem;
       color: $orangeDark;
+      width: 15rem;
       &:hover {
         color: $white;
         background-color: $orangeDark;

@@ -1,8 +1,8 @@
 @import '../../core/variables';
 
 .filters {
-  text-align: center;
   padding-top: 1rem;
+  text-align: center;
   @media (min-width: 768px) {
     padding-top: 2rem;
   }
@@ -22,21 +22,11 @@
     }
   }
   &__rst-btn {
-    padding: 0.8rem 1.6rem;
-    border: none;
-    margin: 1rem;
-    background-color: $orange;
     width: 15rem;
-    color: $black;
-    cursor: pointer;
-    &:hover {
-      background-color: $orangeDark;
-      color: $white;
-    }
   }
   &__total {
-    margin: 2rem;
     display: inline-block;
+    margin: 2rem;
     padding: 1rem;
     border: 0.2rem solid $orangeDark;
   }
