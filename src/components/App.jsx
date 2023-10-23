@@ -18,6 +18,7 @@ import MovieSceneDetail from './Results/MovieSceneDetail';
 import Footer from './Footer/Footer';
 //Styles
 import '../styles/layout/App.scss';
+import ArrowBtn from './ArrowBtn';
 
 function App() {
   //States
@@ -95,6 +96,7 @@ function App() {
                   srchMovieVal={srchMovieVal}
                   srchYearVal={srchYearVal}
                 />
+                <ArrowBtn />
               </>
             }
           />

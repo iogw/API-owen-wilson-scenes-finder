@@ -28,6 +28,7 @@
     display: inline-block;
     margin: 2rem;
     padding: 1rem;
-    border: 0.2rem solid $orangeDark;
+    background-color: $orangeDark;
+    color: $white;
   }
 }

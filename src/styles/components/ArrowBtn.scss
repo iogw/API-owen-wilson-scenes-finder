@@ -1,0 +1,39 @@
+@import '../core/variables.scss';
+
+.arrow-up {
+  position: sticky;
+  left: 100%;
+  bottom: 4%;
+  transform: translate(-50%, -50%);
+
+  background-color: $orangeDark;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .fa-arrow-up {
+    font-size: 3rem;
+    color: $white;
+  }
+  &:hover {
+    overflow: hidden;
+    .fa-arrow-up {
+      animation-duration: 1s;
+      animation-name: rollup;
+      animation-iteration-count: infinite;
+      @keyframes rollup {
+        from {
+          margin-bottom: -150%;
+        }
+        to {
+          margin-bottom: 200%;
+        }
+      }
+    }
+  }
+}
