@@ -1,0 +1,43 @@
+@import '../core/variables';
+
+.header {
+  padding: 2rem;
+  background-color: $orange;
+  color: $black;
+  text-align: center;
+  &__title {
+    padding: 1rem;
+    font-size: 3rem;
+    @media (min-width: 768px) {
+      font-size: 4rem;
+    }
+    @media (min-width: 1280px) {
+      font-size: 5rem;
+    }
+  }
+  &__description {
+    padding: 1rem;
+    font-size: 1.3rem;
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+    @media (min-width: 1280px) {
+      font-size: 2rem;
+    }
+  }
+  &__spoiler {
+    padding: 1rem;
+    font-size: 1rem;
+    &--span {
+      padding: 0.5rem;
+      border: 0.1rem solid $orangeDark;
+      color: $orange;
+      &:hover {
+        color: $black;
+      }
+    }
+    @media (min-width: 768px) {
+      font-size: 1.3rem;
+    }
+  }
+}

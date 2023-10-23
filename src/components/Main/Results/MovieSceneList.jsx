@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import MovieSceneListItem from './MovieSceneListItem';
+import '../../../styles/components/MovieSceneList.scss';
 
 const MovieSceneList = ({
   filteredScenesList,
@@ -14,11 +15,10 @@ const MovieSceneList = ({
     return scene;
   };
   return (
-    <section>
+    <section className='search-results'>
       {filteredScenesList.length === 0 && !isLoading ? (
-        <p>
-          Nada por aquí con la búsqueda: {srchMovieVal} y el año {srchYearVal}{' '}
-          &#58;&#40;
+        <p className="search-results__message">
+          Nada por aquí con la búsqueda &quot;{srchMovieVal} &quot; y el año &quot;{srchYearVal==="all"? "todos": srchYearVal}&quot; &#58;&#40;
         </p>
       ) : (
         renderScenesList()

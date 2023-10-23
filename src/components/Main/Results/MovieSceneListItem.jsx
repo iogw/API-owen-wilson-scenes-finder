@@ -1,21 +1,22 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import '../../../styles/components/MovieSceneListItem.scss';
 
 const MovieSceneListItem = ({ scene }) => {
   return (
-    <article>
-      <Link to={`/scene/${scene.id}`}>
+    <Link to={`/scene/${scene.id}`}>
+      <article className="scene-item">
         <img
-          width="100px"
+          className="scene-item__img"
           src={scene.img}
           alt={`Póster de la película ${scene.movieTitle}`}
         />
-        <h2>
+        <h2 className="scene-item__title">
           {scene.movieTitle} - {scene.year}
         </h2>
-        <p>{scene.phrase}</p>
-      </Link>
-    </article>
+        <p className="scene-item__phrase">{scene.phrase}</p>
+      </article>
+    </Link>
   );
 };
 

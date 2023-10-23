@@ -1,0 +1,34 @@
+@import '../core/variables';
+
+.scene-item {
+  padding: 2rem 2rem 0;
+  margin: 1rem;
+  border: 0.2rem solid $orange;
+  border-radius: 5%;
+  text-align: center;
+  color: $black;
+  height: 100%;
+  &:hover {
+    background-color: $orangeDark;
+    color: $white;
+  }
+  &__img {
+    display: block;
+    margin: 0 auto;
+    border: 1rem solid $orange;
+    max-width: 15rem;
+    @media (min-width: 768px) {
+      max-width: 17rem;
+    }
+    @media (min-width: 1280px) {
+      max-width: 25rem;
+    }
+  }
+  &__title {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+  }
+  &__phrase {
+    font-size: 1.4rem;
+  }
+}

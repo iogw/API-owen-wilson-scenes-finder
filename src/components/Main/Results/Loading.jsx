@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../../styles/Loader.scss';
+import '../../../styles/components/Loader.scss';
 
 const Loading = ({ loading }) => {
   return loading ? <span className="loader" /> : null;

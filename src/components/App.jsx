@@ -9,6 +9,8 @@ import Filters from './Main/Filters/Filters';
 import MovieSceneList from './Main/Results/MovieSceneList';
 import MovieSceneDetail from './Main/Results/MovieSceneDetail';
 import Loading from './Main/Results/Loading';
+//Styles
+import '../styles/layout/App.scss'
 
 function App() {
   //States

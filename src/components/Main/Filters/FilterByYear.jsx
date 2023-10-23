@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import '../../../styles/components/Filter.scss';
 
 const FilterByYear = ({ yearsList, srchYearVal, handleSrchYearSelect }) => {
   const renderSrchYearOptions = () => {
@@ -12,9 +13,10 @@ const FilterByYear = ({ yearsList, srchYearVal, handleSrchYearSelect }) => {
   };
   const onChangeYearSelect = (e) => handleSrchYearSelect(e.target.value);
   return (
-    <>
-      <label htmlFor="searchYear">¿De qué año? </label>
+    <div className='filter-year'>
+      <label className='filter-year__label' htmlFor="searchYear">¿De qué año? </label>
       <select
+      className='filter-year__select'
         name="searchYear"
         id="searchYear"
         value={srchYearVal}
@@ -23,7 +25,7 @@ const FilterByYear = ({ yearsList, srchYearVal, handleSrchYearSelect }) => {
         <option value="all">Todos</option>
         {renderSrchYearOptions()}
       </select>
-    </>
+    </div>
   );
 };
 
