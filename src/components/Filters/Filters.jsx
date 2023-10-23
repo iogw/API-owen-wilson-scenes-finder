@@ -11,22 +11,26 @@ const Filters = ({
   srchYearVal,
   handleSrchYearSelect,
   handleRstBtn,
+  totalFilteredList,
 }) => {
   return (
-    <form className="filters" onSubmit={(e) => e.preventDefault()}>
-      <FilterByMovie
-        srchMovieVal={srchMovieVal}
-        handleSrchMovieInput={handleSrchMovieInput}
-      />
-      <FilterByYear
-        yearsList={yearsList}
-        srchYearVal={srchYearVal}
-        handleSrchYearSelect={handleSrchYearSelect}
-      />
-      <button className="reset-button" onClick={handleRstBtn}>
-        Limpiar búsqueda
-      </button>
-    </form>
+    <div className='filters'>
+      <form className="filters__form" onSubmit={(e) => e.preventDefault()}>
+        <FilterByMovie
+          srchMovieVal={srchMovieVal}
+          handleSrchMovieInput={handleSrchMovieInput}
+        />
+        <FilterByYear
+          yearsList={yearsList}
+          srchYearVal={srchYearVal}
+          handleSrchYearSelect={handleSrchYearSelect}
+        />
+        <button className="filters__rst-btn" onClick={handleRstBtn}>
+          Limpiar búsqueda
+        </button>
+      </form>
+      <p className='filters__total'>Número de resultados: {totalFilteredList}</p>
+    </div>
   );
 };
 
@@ -37,6 +41,7 @@ Filters.propTypes = {
   srchYearVal: PropTypes.string,
   handleSrchYearSelect: PropTypes.func,
   handleRstBtn: PropTypes.func,
+  totalFilteredList: PropTypes.number,
 };
 
 export default Filters;

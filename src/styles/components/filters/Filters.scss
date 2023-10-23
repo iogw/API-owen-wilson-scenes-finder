@@ -1,31 +1,43 @@
 @import '../../core/variables';
 
 .filters {
-  padding: 1rem 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  padding-top: 1rem;
   @media (min-width: 768px) {
-    padding: 2rem 5rem;
+    padding-top: 2rem;
   }
   @media (min-width: 1280px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5rem;
+    padding-top: 3rem;
   }
-}
 
-.reset-button {
-  padding: 0.8rem 1.6rem;
-  border: none;
-  margin: 1rem;
-  background-color: $orange;
-  width: 15rem;
-  color: $black;
-  cursor: pointer;
-  &:hover {
-    background-color: $orangeDark;
-    color: $white;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 1280px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  &__rst-btn {
+    padding: 0.8rem 1.6rem;
+    border: none;
+    margin: 1rem;
+    background-color: $orange;
+    width: 15rem;
+    color: $black;
+    cursor: pointer;
+    &:hover {
+      background-color: $orangeDark;
+      color: $white;
+    }
+  }
+  &__total {
+    margin: 2rem;
+    display: inline-block;
+    padding: 1rem;
+    border: 0.2rem solid $orangeDark;
   }
 }

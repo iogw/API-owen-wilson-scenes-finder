@@ -7,7 +7,9 @@ const Footer = () => {
       <Tooltip>
         <p>Lo dice en todas sus pelis</p>
       </Tooltip>
-      <a href="#header" className='footer__arrow-up'><i className="fa-solid fa-arrow-up"></i></a>
+      <a href="#header" className="footer__arrow-up">
+        <i className="fa-solid fa-arrow-up"></i>
+      </a>
     </footer>
   );
 };

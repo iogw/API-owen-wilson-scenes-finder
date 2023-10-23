@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation, matchPath, Navigate } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  useLocation,
+  matchPath,
+  Navigate,
+} from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 //services
 import callToApi from '../services/api';
@@ -51,6 +57,8 @@ function App() {
       );
     return filteredScenes;
   };
+  const totalFilteredList = getFilteredScenesList().length;
+  console.log(totalFilteredList);
   const getUniqueYearsList = () => {
     const yearsOfList = scenesList.map((scene) => scene.year);
     const uniqueSortedYears = [...new Set(yearsOfList)].sort();
@@ -79,6 +87,7 @@ function App() {
                   srchYearVal={srchYearVal}
                   handleSrchYearSelect={handleSrchYearSelect}
                   handleRstBtn={handleRstBtn}
+                  totalFilteredList={totalFilteredList}
                 />
                 <Loading loading={isLoading} />
                 <MovieSceneList
@@ -90,8 +99,7 @@ function App() {
               </>
             }
           />
-          <Route path="/header" element={<Navigate to="/"/>}/>
-
+          <Route path="/header" element={<Navigate to="/" />} />
 
           <Route
             path="/scene/:id"
