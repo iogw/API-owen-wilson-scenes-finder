@@ -13,6 +13,10 @@ const callToApi = () => {
           director: eachData.director,
           audio: eachData.audio,
           video: eachData.video['480p'],
+          character: eachData.character,
+          timeStamp: eachData.timestamp,
+          totalWows: eachData.total_wows_in_movie,
+          currentWow: eachData.current_wow_in_movie,
         };
       });
       return cleanData;
