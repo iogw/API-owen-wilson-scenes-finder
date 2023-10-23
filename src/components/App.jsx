@@ -9,6 +9,7 @@ import {
 import { v4 as uuid } from 'uuid';
 //services
 import callToApi from '../services/api';
+import localStor from '../services/localStorage';
 //components
 import Header from './Header/Header';
 import Filters from './Filters/Filters';
@@ -22,9 +23,30 @@ import ArrowBtn from './ArrowBtn';
 
 function App() {
   //States
+  // const dataTest = [
+  //   {
+  //     audio:
+  //       'https://assets.ctfassets.net/bs8ntwkklfua/1dXEYZQP1Fl6CX1roy7ZAH/f31b90a6f961dcc16c16b294f4faf664/The_Big_Year_Wow_3.mp3',
+  //     character: 'Kenny Bostick',
+  //     currentWow: 3,
+  //     director: 'David Frankel',
+  //     id: 'cfc0674f-fb8f-46c1-b1b7-a9e4f3596a3c',
+  //     img: 'https://images.ctfassets.net/bs8ntwkklfua/pCjGOhbTCQVjLRN9zTwIi/ce7cdf4b40f3549326d881697aa468a1/The_Big_Year_Poster.jpg',
+  //     movieTitle: 'The Big Year',
+  //     phrase: 'Wow, and here I thought I was the bomb at 728.',
+  //     timeStamp: '01:08:23',
+  //     totalWows: 3,
+  //     video:
+  //       'https://videos.ctfassets.net/bs8ntwkklfua/55z94kbUxNFIL0rYb1i2mH/ca0505ca5e2017b663f18cca8af571b2/The_Big_Year_Wow_3_480p.mp4',
+  //     year: 2011,
+  //   },
+  // ];
+  const [scenesList, setScenesList] = useState([]);
+  const [lsScenesList, setLsScenesList] = useState(
+    localStor.get('sceneList', [])
+  );
   const [srchMovieVal, setSrchMovieVal] = useState('');
   const [srchYearVal, setSrchYearVal] = useState('all');
-  const [scenesList, setScenesList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   //effects
@@ -35,6 +57,9 @@ function App() {
         return { ...el, id: uuid() };
       });
       setScenesList(apiDataWithId);
+      const lsAndActualList = [...lsScenesList, ...apiDataWithId];
+      setLsScenesList(lsAndActualList);
+      localStor.set('sceneList', lsAndActualList);
       setIsLoading(false);
     });
   }, []);
@@ -68,7 +93,8 @@ function App() {
   const getSceneData = () => {
     const routeData = matchPath('/scene/:id', pathname);
     const sceneId = routeData ? routeData.params.id : '';
-    return scenesList.find((scene) => scene.id === sceneId);
+    const findData = lsScenesList.find((scene) => scene.id === sceneId);
+    return findData;
   };
 
   return (

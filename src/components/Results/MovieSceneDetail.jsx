@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import '../../styles/components/results/MovieSceneDetail.scss';
+import NotFound from './NotFound';
 import Button from '../Button';
+import '../../styles/components/results/MovieSceneDetail.scss';
 
 const MovieSceneDetail = ({ sceneData }) => {
   const renderScene = () => {
@@ -61,7 +62,7 @@ const MovieSceneDetail = ({ sceneData }) => {
       </article>
     );
   };
-  return <div>{renderScene()}</div>;
+  return <div>{sceneData ? renderScene() : <NotFound />}</div>;
 };
 
 MovieSceneDetail.propTypes = {

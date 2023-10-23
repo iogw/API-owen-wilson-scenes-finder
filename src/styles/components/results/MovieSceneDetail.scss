@@ -88,3 +88,19 @@ svg,
     }
   }
 }
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__img {
+    padding: 5rem 4rem 0 4rem;
+    max-width: 100rem;
+    @media all and (min-width: 768px) {
+      padding: 5rem 4rem 0 4rem;
+    }
+    @media all and (min-width: 1280px) {
+      padding: 5rem 4rem 0 4rem;
+    }
+  }
+}
