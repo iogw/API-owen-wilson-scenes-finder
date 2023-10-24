@@ -67,6 +67,7 @@ En este ejercicio he podido practicar y asentar:
 - Funcionamiento y manejo de las rutas estáticas y dinámicas.
 
 Mejoras UI/UX:
+- Añadir un **loader** mientras se reciben los datos del api.
 - Un botón para **limpiar los valores** de la búsqueda.
 - Un botón de subir en la pantalla principal, donde se genera mucho scroll. Aquí investigué y apliqué **Navigate de React-Router-DOM**.
 - **Nuevos datos curiosos** recogidos de la API en las tarjetas filtradas y en los detalles de la tarjeta.
