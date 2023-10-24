@@ -27,6 +27,8 @@ function App() {
   const [srchMovieVal, setSrchMovieVal] = useState('');
   const [srchYearVal, setSrchYearVal] = useState('all');
   const [isLoading, setIsLoading] = useState(false);
+  const [sortAtoZ, setSortAtoZ] = useState(false);
+  const [sortZtoA, setSortZtoA] = useState(false);
 
   //effects
   useEffect(() => {
@@ -68,6 +70,31 @@ function App() {
     const uniqueSortedYears = [...new Set(yearsOfList)].sort();
     return uniqueSortedYears;
   };
+
+  const handleSortScenesList = (order) => {
+    const scenesListToSort = [...scenesList];
+    let sortList = scenesListToSort.sort((a, b) => {
+      if (order === 'AtoZ' && !sortAtoZ) {
+        return a.movieTitle > b.movieTitle ? 1 : -1;
+      } else if (order === 'ZtoA' && !sortZtoA) {
+        return a.movieTitle < b.movieTitle ? 1 : -1;
+      }
+    });
+
+    if (order === 'AtoZ' && !sortAtoZ) {
+      setSortAtoZ(!sortAtoZ);
+      setSortZtoA(false);
+    } else if (order === 'ZtoA' && !sortZtoA) {
+      setSortZtoA(!sortZtoA);
+      setSortAtoZ(false);
+    } else {
+      setSortZtoA(false);
+      setSortAtoZ(false);
+      sortList = locSto.get('scenesList', []);
+    }
+    setScenesList([...sortList]);
+  };
+
   const { pathname } = useLocation();
   const getSceneData = () => {
     const routeData = matchPath('/scene/:id', pathname);
@@ -93,6 +120,9 @@ function App() {
                   handleSrchYearSelect={handleSrchYearSelect}
                   handleRstBtn={handleRstBtn}
                   totalFilteredList={totalFilteredList}
+                  handleSortScenesList={handleSortScenesList}
+                  sortAtoZ={sortAtoZ}
+                  sortZtoA={sortZtoA}
                 />
                 <Loading loading={isLoading} />
                 <MovieSceneList

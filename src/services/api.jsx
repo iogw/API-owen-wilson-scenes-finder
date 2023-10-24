@@ -1,6 +1,6 @@
 const callToApi = () => {
   return fetch(
-    `https://owen-wilson-wow-api.onrender.com/wows/random?results=50`
+    `https://owen-wilson-wow-api.onrender.com/wows/random?results=100`
   )
     .then((response) => response.json())
     .then((apiData) => {

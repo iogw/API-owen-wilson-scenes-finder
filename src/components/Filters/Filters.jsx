@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import Button from '../Button';
 import FilterByMovie from './FilterByMovie';
 import FilterByYear from './FilterByYear';
+import SortByMovie from './SortByMovie';
 
 import '../../styles/components/filters/Filters.scss';
-import Button from '../Button';
 
 const Filters = ({
   srchMovieVal,
@@ -13,28 +14,43 @@ const Filters = ({
   handleSrchYearSelect,
   handleRstBtn,
   totalFilteredList,
+  handleSortScenesList,
+  sortAtoZ,
+  sortZtoA,
 }) => {
   return (
     <div className="filters">
       <form className="filters__form" onSubmit={(e) => e.preventDefault()}>
-        <FilterByMovie
-          srchMovieVal={srchMovieVal}
-          handleSrchMovieInput={handleSrchMovieInput}
-        />
-        <FilterByYear
-          yearsList={yearsList}
-          srchYearVal={srchYearVal}
-          handleSrchYearSelect={handleSrchYearSelect}
-        />
-        <Button
-          text="Limpiar búsqueda"
-          btnClass="filters__rst-btn"
-          hndlFunc={handleRstBtn}
-        />
+        <section className="filters__form-inputs">
+          <FilterByMovie
+            srchMovieVal={srchMovieVal}
+            handleSrchMovieInput={handleSrchMovieInput}
+          />
+          <FilterByYear
+            yearsList={yearsList}
+            srchYearVal={srchYearVal}
+            handleSrchYearSelect={handleSrchYearSelect}
+          />
+          <Button
+            text="Limpiar búsqueda"
+            btnClass="filters__rst-btn"
+            hndlFunc={handleRstBtn}
+          />
+        </section>
+
+        <section className="filters__form-sorters">
+          <p className="filters__total">
+            Número de resultados: {totalFilteredList}
+          </p>
+          <section className="filters__form-sorters">
+            <SortByMovie
+              handleSortScenesList={handleSortScenesList}
+              sortAtoZ={sortAtoZ}
+              sortZtoA={sortZtoA}
+            />
+          </section>
+        </section>
       </form>
-      <p className="filters__total">
-        Número de resultados: {totalFilteredList}
-      </p>
     </div>
   );
 };
@@ -47,6 +63,9 @@ Filters.propTypes = {
   handleSrchYearSelect: PropTypes.func,
   handleRstBtn: PropTypes.func,
   totalFilteredList: PropTypes.number,
+  handleSortScenesList: PropTypes.func,
+  sortAtoZ: PropTypes.bool,
+  sortZtoA: PropTypes.bool,
 };
 
 export default Filters;

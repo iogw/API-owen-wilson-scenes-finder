@@ -1,19 +1,33 @@
 @import '../../core/variables';
 
-.spoiler-title {
-  display: inline;
-  padding: 2rem 5rem;
+.spoiler {
+  &__title {
+    display: inline;
+    padding: 2rem 5rem;
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+    &:hover {
+      color: $orangeDark;
+    }
+  }
+  &__text {
+    position: absolute;
+    bottom: 50%;
+    left: 55%;
+    padding: 1rem;
+    background-color: $orange;
+    border: 1px solid $orangeDark;
+    box-shadow: 10px 10px 10px $orangeDark;
+    display: none;
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  &__wow {
+    color: $orangeDark;
+  }
 }
-.spoiler-text {
-  position: absolute;
-  bottom: 50%;
-  left: 55%;
-  padding: 1rem;
-  background-color: $orange;
-  border: 1px solid $orangeDark;
-  box-shadow: 10px 10px 10px $orangeDark;
-  display: none;
-}
-.spoiler-title:hover ~ .spoiler-text {
+.spoiler__title:hover ~ .spoiler__text {
   display: inline-block;
 }
