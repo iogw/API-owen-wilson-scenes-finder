@@ -29,8 +29,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [sortAtoZ, setSortAtoZ] = useState(false);
   const [sortZtoA, setSortZtoA] = useState(false);
-  const [sortOldToNew, setSortOldToNew] = useState(false);
-  const [sortNewToOld, setSortNewToOld] = useState(false);
 
   //effects
   useEffect(() => {
@@ -78,11 +76,7 @@ function App() {
     let sortList = scenesListToSort.sort((a, b) => {
       if (order === 'AtoZ' && !sortAtoZ) {
         return a.movieTitle > b.movieTitle ? 1 : -1;
-      } else if (order === 'sortZtoA' && !sortZtoA) {
-        return a.movieTitle < b.movieTitle ? 1 : -1;
-      } else if (order === 'sortOldToNew' && !sortOldToNew) {
-        return a.movieTitle > b.movieTitle ? 1 : -1;
-      } else if (order === 'sortNewToOld' && !sortNewToOld) {
+      } else if (order === 'ZtoA' && !sortZtoA) {
         return a.movieTitle < b.movieTitle ? 1 : -1;
       }
     });
@@ -129,8 +123,6 @@ function App() {
                   handleSortScenesList={handleSortScenesList}
                   sortAtoZ={sortAtoZ}
                   sortZtoA={sortZtoA}
-                  sortOldToNew={sortOldToNew}
-                  sortNewToOld={sortNewToOld}
                 />
                 <Loading loading={isLoading} />
                 <MovieSceneList

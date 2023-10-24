@@ -3,7 +3,6 @@ import Button from '../Button';
 import FilterByMovie from './FilterByMovie';
 import FilterByYear from './FilterByYear';
 import SortByMovie from './SortByMovie';
-import SortByYear from './SortByYear';
 
 import '../../styles/components/filters/Filters.scss';
 
@@ -18,8 +17,6 @@ const Filters = ({
   handleSortScenesList,
   sortAtoZ,
   sortZtoA,
-  sortOldToNew,
-  sortNewToOld,
 }) => {
   return (
     <div className="filters">
@@ -51,11 +48,6 @@ const Filters = ({
               sortAtoZ={sortAtoZ}
               sortZtoA={sortZtoA}
             />
-            <SortByYear
-              handleSortScenesList={handleSortScenesList}
-              sortOldToNew={sortOldToNew}
-              sortNewToOld={sortNewToOld}
-            />
           </section>
         </section>
       </form>
@@ -74,8 +66,6 @@ Filters.propTypes = {
   handleSortScenesList: PropTypes.func,
   sortAtoZ: PropTypes.bool,
   sortZtoA: PropTypes.bool,
-  sortOldToNew: PropTypes.bool,
-  sortNewToOld: PropTypes.bool,
 };
 
 export default Filters;
