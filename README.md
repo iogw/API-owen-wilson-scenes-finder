@@ -63,5 +63,5 @@ Con una maquetación sencilla centrando el proyecto en la funcionalidad y en man
 - Estructurando el código por tipos.
 - Estructurando el proyecto por funcionalidad.
 
-[Irene García Wodak](https://github.com/irenegwodak) 🖖
+🖖
 
